@@ -1,0 +1,80 @@
+{
+    "name": "yacho/microphp",
+    "description": "Application skeleton for the MicroPHP framework.",
+    "type": "project",
+    "license": "MIT",
+    "keywords": [
+        "microphp",
+        "framework",
+        "filesystem-routing",
+        "project-skeleton"
+    ],
+    "require": {
+        "php": "^8.1",
+        "yacho/microphp-core": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "suggest": {
+        "ext-mongodb": "Required when DB_DRIVER is mongodb.",
+        "ext-pdo_mysql": "Required when DB_DRIVER is mysql or mariadb.",
+        "ext-pdo_pgsql": "Required when DB_DRIVER is pgsql.",
+        "ext-pdo_sqlite": "Required by the default SQLite configuration.",
+        "ext-pdo_sqlsrv": "Required when DB_DRIVER is sqlsrv."
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "exclude-from-classmap": [
+            "/app/components/"
+        ]
+    },
+    "bin": [
+        "bin/view-cache.php",
+        "bin/create-component.php",
+        "bin/create-api.php"
+    ],
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php bin/setup-project.php"
+        ],
+        "microphp:setup": "@php bin/setup-project.php",
+        "microphp:cache-clear": "@php bin/view-cache.php clear",
+        "microphp:cache-warm": "@php bin/view-cache.php warm",
+        "microphp:make-api": "@php bin/create-api.php",
+        "microphp:make-component": "@php bin/create-component.php",
+        "test": "@php vendor/bin/phpunit",
+        "test:smoke": "@php tests/manual-smoke-test.php"
+    },
+    "scripts-descriptions": {
+        "microphp:setup": "Create or refresh the local .env file and runtime directories.",
+        "microphp:cache-clear": "Clear compiled .micro.php view cache files.",
+        "microphp:cache-warm": "Compile all .micro.php views into the cache.",
+        "microphp:make-api": "Generate filesystem API method files under app/api.",
+        "microphp:make-component": "Generate a colocated component class, template, CSS, and JS files.",
+        "test": "Run the canonical PHPUnit suite.",
+        "test:smoke": "Run the optional legacy manual smoke checks."
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "archive": {
+        "exclude": [
+            "/.DS_Store",
+            "/.env",
+            "/.git",
+            "/.phpunit.cache",
+            "/PreparationForDivide",
+            "/vendor",
+            "/var/cache/*",
+            "/var/log/*",
+            "/var/sessions/*"
+        ]
+    },
+    "support": {
+        "issues": "https://github.com/y4ch0/microphp-composer/issues",
+        "source": "https://github.com/y4ch0/microphp-composer"
+    }
+}

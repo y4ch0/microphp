@@ -1,0 +1,6 @@
+/.env
+/vendor/
+/var/cache/
+/var/log/
+/var/sessions/
+/.phpunit.cache/

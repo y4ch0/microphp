@@ -1,0 +1,7 @@
+/.DS_Store export-ignore
+/.git export-ignore
+/.github export-ignore
+/.phpunit.cache export-ignore
+/MODERNIZATION.md export-ignore
+/PACKAGIST.md export-ignore
+/PreparationForDivide export-ignore
